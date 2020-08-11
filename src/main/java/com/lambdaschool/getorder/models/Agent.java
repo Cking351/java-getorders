@@ -1,5 +1,7 @@
 package com.lambdaschool.getorder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,6 +35,7 @@ public class Agent {
     @OneToMany(mappedBy = "agent",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
+    @JsonIgnoreProperties("agent")
     private Set<Customer> customers = new HashSet<>();
 
     public Agent() {
